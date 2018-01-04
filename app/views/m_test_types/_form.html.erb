@@ -1,0 +1,12 @@
+<%= simple_form_for @m_test_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.label :testName,"テスト名称" %>
+  <%= f.input :testName,label: false %>
+  <%= f.input :testUrl,required: true %>
+  <%= f.input :testSize, as: :integer,input_html: { maxlength: 4,size: 4 }  %>
+  <%= f.input :created_id %>
+  <%= f.input :updated_id %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                m_test_types_path, :class => 'btn btn-default' %>
+<% end %>

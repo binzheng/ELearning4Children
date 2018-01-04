@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Toys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Toyname</th>
+      <th>Toyurl</th>
+      <th>Toypoint</th>
+      <th>Toyimage</th>
+      <th>Testdesc</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toys.each do |toy| %>
+      <tr>
+        <td><%= toy.toyName %></td>
+        <td><%= toy.toyUrl %></td>
+        <td><%= toy.toyPoint %></td>
+        <td><%= toy.toyImage %></td>
+        <td><%= toy.testDesc %></td>
+        <td><%= toy.created_id %></td>
+        <td><%= toy.updated_id %></td>
+        <td><%= link_to 'Show', toy %></td>
+        <td><%= link_to 'Edit', edit_toy_path(toy) %></td>
+        <td><%= link_to 'Destroy', toy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Toy', new_toy_path %>

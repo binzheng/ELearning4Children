@@ -1,0 +1,27 @@
+<%- model_class = MTestType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:testName) %>:</strong></dt>
+  <dd><%= @m_test_type.testName %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:testUrl) %>:</strong></dt>
+  <dd><%= @m_test_type.testUrl %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:testSize) %>:</strong></dt>
+  <dd><%= @m_test_type.testSize %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_id) %>:</strong></dt>
+  <dd><%= @m_test_type.created_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_id) %>:</strong></dt>
+  <dd><%= @m_test_type.updated_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              m_test_types_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_m_test_type_path(@m_test_type), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              m_test_type_path(@m_test_type),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

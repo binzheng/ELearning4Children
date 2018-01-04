@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ruleuserid:</strong>
+  <%= @test_rule.ruleUserId %>
+</p>
+
+<p>
+  <strong>Mtesttypeid:</strong>
+  <%= @test_rule.mTestTypeId %>
+</p>
+
+<p>
+  <strong>Testcount:</strong>
+  <%= @test_rule.testCount %>
+</p>
+
+<p>
+  <strong>Maxscore:</strong>
+  <%= @test_rule.maxScore %>
+</p>
+
+<p>
+  <strong>Maxpoint:</strong>
+  <%= @test_rule.maxPoint %>
+</p>
+
+<p>
+  <strong>Minscore:</strong>
+  <%= @test_rule.minScore %>
+</p>
+
+<p>
+  <strong>Minpoint:</strong>
+  <%= @test_rule.minPoint %>
+</p>
+
+<p>
+  <strong>Midscore:</strong>
+  <%= @test_rule.midScore %>
+</p>
+
+<p>
+  <strong>Midpoint:</strong>
+  <%= @test_rule.midPoint %>
+</p>
+
+<%= link_to 'Edit', edit_test_rule_path(@test_rule) %> |
+<%= link_to 'Back', test_rules_path %>

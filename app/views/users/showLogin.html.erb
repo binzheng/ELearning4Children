@@ -1,0 +1,17 @@
+<center>
+    <h1>いろいろ
+   <br>べんきょう</h1>
+<br/>
+  <div class="card">          
+    <div class="card-body"><%= "名前："+@user.kanjiNm%><div>  
+    <div class="card-body"><%= "おかね："+@user.point.to_s+"円"%><div>  
+  </div>
+<br/>
+<div class="btn-group-vertical">
+<a href="/m_test_types/showList" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Start</a>
+<br/>
+<a href="/toys/showList" class="btn btn-lg btn-info" role="button" aria-pressed="true">おもちゃ</a>
+<br/>
+<a href="/result_historys/showHistList" class="btn btn-lg btn-info" role="button" aria-pressed="true">りれき</a>
+</div>
+</center>

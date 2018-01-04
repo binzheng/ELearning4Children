@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Rules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ruleuserid</th>
+      <th>Mtesttypeid</th>
+      <th>Testcount</th>
+      <th>Maxscore</th>
+      <th>Maxpoint</th>
+      <th>Minscore</th>
+      <th>Minpoint</th>
+      <th>Midscore</th>
+      <th>Midpoint</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_rules.each do |test_rule| %>
+      <tr>
+        <td><%= test_rule.ruleUserId %></td>
+        <td><%= test_rule.mTestTypeId %></td>
+        <td><%= test_rule.testCount %></td>
+        <td><%= test_rule.maxScore %></td>
+        <td><%= test_rule.maxPoint %></td>
+        <td><%= test_rule.minScore %></td>
+        <td><%= test_rule.minPoint %></td>
+        <td><%= test_rule.midScore %></td>
+        <td><%= test_rule.midPoint %></td>
+        <td><%= link_to 'Show', test_rule %></td>
+        <td><%= link_to 'Edit', edit_test_rule_path(test_rule) %></td>
+        <td><%= link_to 'Destroy', test_rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test Rule', new_test_rule_path %>

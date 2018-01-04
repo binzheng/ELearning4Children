@@ -1,0 +1,97 @@
+<%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :loginNm, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :loginNm, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:loginNm) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :kataNm, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :kataNm, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:kataNm) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :kanjiNm, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :kanjiNm, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:kanjiNm) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :age, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :age, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:age) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :voiceGood, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :voiceGood, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:voiceGood) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :voiceBad, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :voiceBad, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:voiceBad) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :voicePerfect, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :voicePerfect, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:voicePerfect) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :created_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :created_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:created_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :updated_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :updated_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:updated_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

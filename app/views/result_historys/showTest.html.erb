@@ -1,0 +1,40 @@
+<h4><%=@m_test_type.testName %></h4>
+<%= simple_form_for @result_history,:url => {:action => 'calcTest'},:method => 'post',:html => { :name => 'result_history_form',:class => 'form-horizontal' } do |f| %>
+    <%= f.input :id,as: :hidden,value: @result_history.id %>
+    <div class="list-group list-question">
+    <% @result_his_details.each do |result_his_detail| %>
+        <%= f.simple_fields_for  :result_his_details do |rhd| %>
+        　　 <a href="javascript:void(0);" class="list-group-item question_text <%= result_his_detail.testSeq < 10 ? "question_seq_single" : "" %> <%= result_his_detail.testResult == 't' ? "list-group-item-success" : "" %>">
+              <%= result_his_detail.testSeq.to_s+" : "+result_his_detail.testQuestion+" = " %>
+              <%= result_his_detail.testResult == 't' ? result_his_detail.testAnswer : "" %>        
+            </a>
+            <%= rhd.input :id,as: :hidden,input_html: {name: "result_his_details[][id]", value: result_his_detail.id} %>
+            <% if result_his_detail.testResult == 't' %>
+                <%= rhd.input :test_answer,as: :hidden,input_html: {name: "result_his_details[][test_answer]", value: result_his_detail.testAnswer} %>
+            <% else %>
+                <%= rhd.input :test_answer,as: :hidden,input_html: {name: "result_his_details[][test_answer]"} %>
+            <% end %>
+        <% end %>
+    <% end %>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg number_btn">1</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">2</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">3</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg number_btn">4</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">5</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">6</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg number_btn">7</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">8</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">9</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg number_btn">けす</button>
+        <button type="button" class="btn btn-primary btn-lg number_btn">0</button>
+        <button type="button" class="btn btn-primary btn-lg action_btn">つぎ</button>
+    </div>
+<% end %>

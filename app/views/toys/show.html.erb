@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Toyname:</strong>
+  <%= @toy.toyName %>
+</p>
+
+<p>
+  <strong>Toyurl:</strong>
+  <%= @toy.toyUrl %>
+</p>
+
+<p>
+  <strong>Toypoint:</strong>
+  <%= @toy.toyPoint %>
+</p>
+
+<p>
+  <strong>Toyimage:</strong>
+  <%= @toy.toyImage %>
+</p>
+
+<p>
+  <strong>Testdesc:</strong>
+  <%= @toy.testDesc %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @toy.created_id %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @toy.updated_id %>
+</p>
+
+<%= link_to 'Edit', edit_toy_path(@toy) %> |
+<%= link_to 'Back', toys_path %>

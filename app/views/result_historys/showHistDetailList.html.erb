@@ -1,0 +1,14 @@
+<h2>べんきょうりれき</h2>
+<div class="list-group list-history">
+<% @result_historys.each do |result_history| %>
+    <a href="/result_historys/showTestFirstHist/<%= result_history.id%>" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= result_history.testStartTime.strftime('%H:%M:%S') %>~<%= result_history.testEndTime.strftime('%H:%M:%S') %></h4>
+    　　　<p class="list-group-item-text">テスト種別：<%= result_history.m_test_type.testName %></p>
+    　　　<p class="list-group-item-text">せいせき：<%= result_history.testResultFirst %>&nbsp;もらったおかね：<%= result_history.testPoint %></p>
+    </a>
+<% end %>
+</div>
+<div>
+    <a href="/result_historys/showHistList" class="btn btn-primary btn-lg" role="button">もどる</a>
+    <a href="/users/showLogin/<%= session[:user_id]%>" class="btn btn-primary btn-lg" role="button">しゅうりょう</a>
+</div>

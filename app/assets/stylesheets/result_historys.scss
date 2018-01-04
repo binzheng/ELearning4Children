@@ -1,0 +1,47 @@
+// Place all the styles related to the resultHistorys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.number_input{
+    width:70px;
+}
+
+.question_text{
+    font-size: 25px;
+}
+.question_seq_single{
+    padding-left: 33px;
+}
+.number_btn{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width:70px;
+}
+.action_btn{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width:70px;
+}
+a.btn:visited{
+    color: white;
+}
+
+.list_detail{
+    margin-top: 20px;
+}
+.list-question{
+    height:250px;
+    overflow:scroll;
+}
+.answer_result{
+    font-size: 40px;
+    text-align: end;
+}
+.answer_result_num{
+    border-bottom: 1px block solid;
+}
+.list-history{
+    height:350px;
+    overflow:scroll;
+}

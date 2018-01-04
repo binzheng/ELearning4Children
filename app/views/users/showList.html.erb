@@ -1,0 +1,9 @@
+<center>
+<h1>いろいろべんきょう</h1>
+<br/>
+<% @users.each do |user| %>
+  <div class="card">          
+    <div class="card-body"><a href="/users/showLogin/<%=user.id%>"><%= "名前："+user.kataNm%></a><div>  
+  </div>
+<% end %>
+</center>

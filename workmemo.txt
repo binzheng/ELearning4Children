@@ -1,0 +1,154 @@
+
+######################Model 作成##################################
+
+rails destroy model user
+rails destroy model resultHistory
+rails destroy model resultHisDetail
+rails destroy model mTestType
+
+rails generate model User loginNm:string kataNm:string kanjiNm:string age:integer email:string point:integer voiceGood:string voiceBad:string voicePerfect:string created_id:string updated_id:string
+
+rails generate model ResultHistory userId:integer testPoint:integer testResultFirst:string testResultLast:string testStartTime:timestamp testEndTime:timestamp testTypeId:integer created_id:string updated_id:string
+
+rails generate model ResultHisDetail testHistId:integer testSeq:integer testQuestion:string testFirstAnswer:string testAnswer:string  expectAnswer:string testResult:string created_id:string updated_id:string
+
+rails generate model MTestType testName:string testEnNm:string parentTypeId:integer testUrl:string testImage:string testDesc:string testSize:integer created_id:string updated_id:string
+
+rails generate model TestRule ruleUserId:integer mTestTypeId:integer
+testCount:integer maxScore:integer maxPoint:integer minScore:integer minPoint:integer
+midScore:integer midPoint:integer
+
+rails generate model Toy toyName:string toyUrl:string toyPoint:integer toyImage:string testDesc:string created_id:string updated_id:string
+
+rails generate model M testName:string testEnNm:string parentTypeId:integer testUrl:string testImage:string testDesc:string testSize:integer created_id:string updated_id:string
+
+#######################Controller 作成#################################
+rails generate controller resultHistorys generateTest calcTest showTestHis reTest
+rails generate controller users showLogin showList login
+rails generate controller mTestTypes show showList
+
+
+#######################作成手順#################################
+注意点：
+　　1.awsの場合、Gemfileのtherubyracerコメントを外し必要がある
+   2.awsの起動、rails s -d -b ec2-13-115-204-153.ap-northeast-1.compute.amazonaws.com -p 3000
+   3.rails 問題,Gemfileのless Gemfileの  gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
+
+rails g scaffold TestRule ruleUserId:integer mTestTypeId:integer testCount:integer maxScore:integer maxPoint:integer minScore:integer minPoint:integer midScore:integer midPoint:integer
+
+rails g scaffold Toy toyName:string toyUrl:string toyPoint:integer toyImage:string testDesc:string created_id:string updated_id:string
+
+rails g bootstrap:themed TestRule
+rails g bootstrap:themed Toy
+
+1. rails g scaffold MTestType testName:string parentTypeId:integer testUrl:string testImage:string testDesc:string testSize:integer created_id:string updated_id:string
+rails g scaffold User User loginNm:string kataNm:string kanjiNm:string age:integer email:string point:integer voiceGood:string voiceBad:string voicePerfect:string created_id:string updated_id:string
+
+2.rails generate model ResultHistory testResultFirst:string testResultLast:string testStartTime:timestamp testEndTime:timestamp testTypeId:string created_id:string updated_id:string
+
+rails generate model ResultHisDetail testHistId:integer testSeq:integer testQuestion:string testFirstAnswer:string testAnswer:string  expectAnswer:string testResult:string created_id:string updated_id:string
+
+#3.rails generate controller resultHistorys generateTest calcTest showTestHis reTest
+rails generate controller users showLogin showList login
+rails generate controller mTestTypes showList
+rails generate controller resultHistorys showHistList
+
+4.File Copy
+ app/views
+ app/controllers
+ config/route.rb
+\cp -f ../elearning3/workmemo.txt ./
+\cp -f ../elearning3/db/seeds.rb db/
+\cp -f ../elearning3/config/routes.rb config/
+\cp -f ../elearning3/app/controllers/*.* app/controllers/
+\cp -f ../elearning3/app/views/result_historys/*.* app/views/result_historys/
+\cp -f ../elearning3/app/views/users/*.* app/views/users/
+\cp -f ../elearning3/app/views/m_test_types/*.* app/views/m_test_types/
+
+
+5.db/seeds.rb
+MTestType.create!([
+  {testName: "さんすう", testUrl: "/result_historys/generateTest", parentTypeId: ,testImage: "10multiplicati.png" ,testDesc: "99まで掛け算",testSize: 20, created_id: "ben", updated_id: "ben"},
+  {testName: "こくごう", testUrl: "/result_historys/generateTest", parentTypeId: ,testImage: "10multiplicati.png" ,testDesc: "99まで掛け算",testSize: 20, created_id: "ben", updated_id: "ben"},
+  {testName: "えいご", testUrl: "/result_historys/generateTest", parentTypeId: ,testImage: "10multiplicati.png" ,testDesc: "99まで掛け算",testSize: 20, created_id: "ben", updated_id: "ben"},
+  {testName: "9*9 かけざん", testUrl: "/result_historys/generateTest", parentTypeId: 1,testImage: "10multiplicati.png" ,testDesc: "99まで掛け算",testSize: 20, created_id: "ben", updated_id: "ben"},
+  {testName: "10までひきざん", testUrl: "/result_historys/generateTest", parentTypeId: 1,testImage: "10add.png" ,testDesc: "", testSize: 20, created_id: "ben", updated_id: "ben"},
+  {testName: "10までげんざん", testUrl: "/result_historys/generateTest", parentTypeId: 1,testImage: "10subtract.png" ,testDesc: "", testSize: 20, created_id: "ben", updated_id: "ben"}
+])
+User.create!([
+    {loginNm: "kaori",kataNm:"カオリ",kanjiNm:"馨ちゃん"}
+])
+
+rake db:migrate
+rake db:seed
+
+
+6. vi Gemfile , bundler instatll 
+gem 'therubyracer', platforms: :ruby
+gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+rails g bootstrap:install
+
+rails g bootstrap:install less
+
+rails g bootstrap:themed Users
+
+rails g bootstrap:layout application fluid -f
+
+rails g bootstrap:layout application fixed
+
+gem 'simple_form'
+
+rails generate simple_form:install --bootstrap
+
+rails g bootstrap:themed Users
+ 
+ 
+ 7.サーバー更新
+ 
+mkdir  ../elearning
+mkdir -p ../elearning/db
+mkdir -p  ../elearning/config
+mkdir -p  ../elearning/app/controllers
+mkdir -p  ../elearning/app/models
+mkdir -p  ../elearning/app/views/result_historys
+mkdir -p  ../elearning/app/views/m_test_types
+mkdir -p  ../elearning/app/views/users
+mkdir -p  ../elearning/app/views/layouts
+mkdir -p  ../elearning/app/views/toys
+mkdir -p  ../elearning/app/views/test_rules
+mkdir -p  ../elearning/app/assets/javascripts
+mkdir -p  ../elearning/app/assets/stylesheets
+mkdir -p  ../elearning/app/assets/images
+
+
+\cp -f ../elearning7/workmemo.txt ../elearning
+\cp -f ../elearning7/db/seeds.rb ../elearning/db/
+\cp -f ../elearning7/config/routes.rb ../elearning/config/
+\cp -f ../elearning7/config/application.rb ../elearning/config/
+\cp -f ../elearning7/app/controllers/*.* ../elearning/app/controllers/
+\cp -f ../elearning7/app/models/*.* ../elearning/app/models/
+\cp -f ../elearning7/app/views/layouts/*.* ../elearning/app/views/layouts/
+\cp -f ../elearning7/app/views/result_historys/*.* ../elearning/app/views/result_historys/
+\cp -f ../elearning7/app/views/users/*.* ../elearning/app/views/users/
+\cp -f ../elearning7/app/views/m_test_types/*.* ../elearning/app/views/m_test_types/
+\cp -f ../elearning7/app/views/toys/*.* ../elearning/app/views/toys/
+\cp -f ../elearning7/app/views/test_rules/*.* ../elearning/app/views/test_rules/
+\cp -f ../elearning7/app/assets/javascripts/*.* ../elearning/app/assets/javascripts/
+\cp -f ../elearning7/app/assets/stylesheets/*.* ../elearning/app/assets/stylesheets/
+\cp -f ../elearning7/app/assets/images/*.* ../elearning/app/assets/images/
+ 
+ 
+ 
+ 
+rails g migration AddColumnToMTestType testEnNm:string parentTypeId:integer testImage:string testDesc:string
+
+rails g migration AddColumnToUser point:integer
+ 
+ 
+ 
+ 

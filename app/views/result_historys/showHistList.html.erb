@@ -1,0 +1,12 @@
+<h2>べんきょうりれき</h2>
+<div class="list-group list-history">
+<% @result_historys.each do |result_history| %>
+    <a href="/result_historys/showHistDetailList/<%= result_history.created_at.strftime("%Y%m%d")%>" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= result_history.created_at.strftime("%Y/%m/%d") %></h4>
+    　　　<p class="list-group-item-text">Max：<%= result_history.testResultFirst%>   Min：<%= result_history.testResultLast%></p>
+    </a>
+<% end %>
+</div>    
+<div>
+    <a href="/users/showLogin/<%= session[:user_id]%>" class="btn btn-primary btn-lg" role="button">しゅうりょう</a>
+</div>

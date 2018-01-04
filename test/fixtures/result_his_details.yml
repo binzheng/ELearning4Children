@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  testHistId: 1
+  testSeq: 1
+  testQuestion: MyString
+  testFirstAnswer: MyString
+  testAnswer: MyString
+  expectAnswer: MyString
+  testResult: MyString
+  created_id: MyString
+  updated_id: MyString
+
+two:
+  testHistId: 1
+  testSeq: 1
+  testQuestion: MyString
+  testFirstAnswer: MyString
+  testAnswer: MyString
+  expectAnswer: MyString
+  testResult: MyString
+  created_id: MyString
+  updated_id: MyString

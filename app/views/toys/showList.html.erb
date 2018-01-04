@@ -1,0 +1,30 @@
+<div>
+    <button data-toggle="collapse" data-target="#demo" class="btn btn-info">おかねかせぎルール</button>
+    <a href="/users/showLogin/<%= session[:user_id]%>" class="btn btn-primary" role="button">もどる</a>
+</div>
+<div id="demo" class="collapse">
+<h3>まいにちもらえるおかねルールはいかとおりです。</h3>
+<% @test_rules.each do |test_rule| %>
+    <p>
+    [<%= test_rule.m_test_type.testName%>]を<%= test_rule.maxScore%>てんいじょうなら、<%= test_rule.maxPoint%>えんもらえます。<br>
+    [<%= test_rule.m_test_type.testName%>]を<%= test_rule.midScore%>てんいじょうなら、<%= test_rule.midPoint%>えんもらえます。<br>
+    [<%= test_rule.m_test_type.testName%>]を<%= test_rule.minScore%>てんいじょうなら、<%= test_rule.minPoint%>えんもらえます。<br>
+    [<%= test_rule.m_test_type.testName%>]はまいにちさいだい<%= test_rule.testCount%>かいもらえることはできます。</p>
+<% end %>         
+</div>
+<br>         
+<% @toys.each do |toy| %>
+  <div class="col-xs-6">
+    <div class="thumbnail">
+      <a href="<%=toy.toyUrl + "/" + toy.id.to_s%>">
+        <%= image_tag toy.toyImage,:style => "100%" %>
+        <div class="caption">
+          <p><%= toy.toyName%><br>
+             かかく：<%= toy.toyPoint%><br>
+             あと<%= toy.toyPoint-@user.point%>えんたまったら、もらえます。</p>
+        </div>
+      </a>
+    </div>
+  </div>
+<% end %>
+         

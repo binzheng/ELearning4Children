@@ -1,0 +1,76 @@
+<%= form_for @result_history, :html => { :class => "form-horizontal result_history" } do |f| %>
+
+  <% if @result_history.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@result_history.errors.count, "error") %> prohibited this result_history from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @result_history.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :testResultFirst, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :testResultFirst, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:testResultFirst) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :testResultLast, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :testResultLast, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:testResultLast) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :testStartTime, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :testStartTime, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:testStartTime) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :testEndTime, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :testEndTime, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:testEndTime) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :testTypeId, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :testTypeId, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:testTypeId) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :created_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :created_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:created_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :updated_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :updated_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:updated_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                result_histories_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

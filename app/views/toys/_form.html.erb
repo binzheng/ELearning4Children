@@ -1,0 +1,17 @@
+<%= simple_form_for(@toy) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :toyName %>
+    <%= f.input :toyUrl %>
+    <%= f.input :toyPoint %>
+    <%= f.input :toyImage %>
+    <%= f.input :testDesc %>
+    <%= f.input :created_id %>
+    <%= f.input :updated_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

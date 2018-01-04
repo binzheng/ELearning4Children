@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toyName: MyString
+  toyUrl: MyString
+  toyPoint: 1
+  toyImage: MyString
+  testDesc: MyString
+  created_id: MyString
+  updated_id: MyString
+
+two:
+  toyName: MyString
+  toyUrl: MyString
+  toyPoint: 1
+  toyImage: MyString
+  testDesc: MyString
+  created_id: MyString
+  updated_id: MyString

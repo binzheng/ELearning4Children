@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  testName: MyString
+  parentTypeId: 1
+  testUrl: MyString
+  testImage: MyString
+  testDesc: MyString
+  testSize: 1
+  created_id: MyString
+  updated_id: MyString
+
+two:
+  testName: MyString
+  parentTypeId: 1
+  testUrl: MyString
+  testImage: MyString
+  testDesc: MyString
+  testSize: 1
+  created_id: MyString
+  updated_id: MyString

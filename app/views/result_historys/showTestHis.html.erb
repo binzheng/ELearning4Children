@@ -1,0 +1,20 @@
+<% if @testPoint.nil? == false && @testPoint != '0' %>
+<div class="alert alert-info">
+  <strong>Info!</strong> <%= @testPoint %>えんもらいました。
+</div>
+<% end %>
+<div class="answer_result">せいせき：<span class="answer_result_num"><%= @result_history.testResultLast%></span></div>
+<ul class="list-group">
+<% @result_his_details.each do |result_his_detail| %>
+    <li class="list-group-item list_detail question_text <%= result_his_detail.testSeq < 10 ? "question_seq_single" : "" %> <%= result_his_detail.testResult == 't' ? "list-group-item-success" : "list-group-item-danger" %>">
+          <%= result_his_detail.testSeq.to_s+" : "+result_his_detail.testQuestion+" = "+result_his_detail.testAnswer %>
+    </li>
+<% end %>
+</ul>    
+<div>
+    <% if @result_history.testResultLast != "100" %>
+    <a href="/result_historys/showTest/<%=@result_history.id%>" class="btn btn-primary btn-lg" role="button">やりなおす</a>    
+    <% end %>
+    <a href="/result_historys/generateTest/<%=@result_history.testTypeId%>" class="btn btn-primary btn-lg" role="button">もういっかい</a>
+    <a href="/users/showLogin/<%= session[:user_id]%>" class="btn btn-primary btn-lg" role="button">しゅうりょう</a>
+</div>

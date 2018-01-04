@@ -1,0 +1,46 @@
+<%- model_class = MTestType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:testName) %></th>
+      <th><%= model_class.human_attribute_name(:testUrl) %></th>
+      <th><%= model_class.human_attribute_name(:testSize) %></th>
+      <th><%= model_class.human_attribute_name(:created_id) %></th>
+      <th><%= model_class.human_attribute_name(:updated_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @m_test_types.each do |m_test_type| %>
+      <tr>
+        <td><%= link_to m_test_type.id, m_test_type_path(m_test_type) %></td>
+        <td><%= m_test_type.testName %></td>
+        <td><%= m_test_type.testUrl %></td>
+        <td><%= m_test_type.testSize %></td>
+        <td><%= m_test_type.created_id %></td>
+        <td><%= m_test_type.updated_id %></td>
+        <td><%=l m_test_type.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      m_test_type_path(m_test_type), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_m_test_type_path(m_test_type), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      m_test_type_path(m_test_type),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_m_test_type_path,
+            :class => 'btn btn-primary' %>

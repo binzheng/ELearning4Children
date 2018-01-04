@@ -1,0 +1,2 @@
+class MTestType < ApplicationRecord
+end

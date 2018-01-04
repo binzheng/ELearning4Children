@@ -1,0 +1,19 @@
+<%= simple_form_for(@test_rule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :ruleUserId %>
+    <%= f.input :mTestTypeId %>
+    <%= f.input :testCount %>
+    <%= f.input :maxScore %>
+    <%= f.input :maxPoint %>
+    <%= f.input :minScore %>
+    <%= f.input :minPoint %>
+    <%= f.input :midScore %>
+    <%= f.input :midPoint %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

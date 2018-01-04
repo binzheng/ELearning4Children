@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  testResultFirst: MyString
+  testResultLast: MyString
+  testStartTime: 2017-12-27 14:02:19
+  testEndTime: 2017-12-27 14:02:19
+  testTypeId: MyString
+  created_id: MyString
+  updated_id: MyString
+
+two:
+  testResultFirst: MyString
+  testResultLast: MyString
+  testStartTime: 2017-12-27 14:02:19
+  testEndTime: 2017-12-27 14:02:19
+  testTypeId: MyString
+  created_id: MyString
+  updated_id: MyString

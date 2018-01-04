@@ -1,0 +1,14 @@
+ <div class="row">
+    <% @m_test_types.each do |m_test_type| %>
+      <div class="col-xs-6">
+        <div class="thumbnail">
+          <a href="<%=m_test_type.testUrl + "/" + m_test_type.id.to_s%>">
+            <%= image_tag m_test_type.testImage,:style => "100%" %>
+            <div class="caption">
+              <p><%= m_test_type.testName%></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    <% end %>
+</div>

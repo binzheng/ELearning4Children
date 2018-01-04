@@ -1,0 +1,2 @@
+class ResultHisDetail < ApplicationRecord
+end

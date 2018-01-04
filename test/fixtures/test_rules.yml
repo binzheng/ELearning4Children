@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ruleUserId: 1
+  mTestTypeId: 1
+  testCount: 1
+  maxScore: 1
+  maxPoint: 1
+  minScore: 1
+  minPoint: 1
+  midScore: 1
+  midPoint: 1
+
+two:
+  ruleUserId: 1
+  mTestTypeId: 1
+  testCount: 1
+  maxScore: 1
+  maxPoint: 1
+  minScore: 1
+  minPoint: 1
+  midScore: 1
+  midPoint: 1
