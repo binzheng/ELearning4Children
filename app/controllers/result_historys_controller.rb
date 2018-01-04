@@ -26,6 +26,14 @@ class ResultHistorysController < ApplicationController
             @result_his_detail = m_type_hikizan(@result_his_detail)
         when '10sub'
             @result_his_detail = m_type_genzan(@result_his_detail)
+        when 'add2'
+            @result_his_detail = m_type_hikizan2(@result_his_detail)
+        when 'add3'
+            @result_his_detail = m_type_hikizan3(@result_his_detail)
+        when 'sub2'
+            @result_his_detail = m_type_genzan2(@result_his_detail)
+        when 'sub3'
+            @result_his_detail = m_type_genzan3(@result_his_detail)
         end
         @result_his_detail.save        
     end
@@ -134,6 +142,38 @@ class ResultHistorysController < ApplicationController
         return result_his_detail
     end
 
+    def m_type_hikizan2(result_his_detail)
+        sameQuestionSize = -1
+        until sameQuestionSize == 0 do        
+            num1 = (rand(99)+1)
+            num2 = (rand(9)+1)
+            question = num1.to_s + " + " + num2.to_s
+            expectAnswer = num1 + num2
+            sameQuestionSize = ResultHisDetail.where(:testHistId => result_his_detail.testHistId,:testQuestion  => question).count()
+        end            
+        result_his_detail.testQuestion = question
+        result_his_detail.expectAnswer = expectAnswer
+
+        return result_his_detail
+    end
+
+    def m_type_hikizan3(result_his_detail)
+        sameQuestionSize = -1
+        until sameQuestionSize == 0 do        
+            num1 = (rand(99)+1)
+            num2 = (rand(99)+1)
+            question = num1.to_s + " + " + num2.to_s
+            expectAnswer = num1 + num2
+            sameQuestionSize = ResultHisDetail.where(:testHistId => result_his_detail.testHistId,:testQuestion  => question).count()
+        end            
+        result_his_detail.testQuestion = question
+        result_his_detail.expectAnswer = expectAnswer
+
+        return result_his_detail
+    end
+
+    
+    
     def m_type_genzan(result_his_detail)
         sameQuestionSize = -1
         until sameQuestionSize == 0 do        
@@ -153,6 +193,43 @@ class ResultHistorysController < ApplicationController
         
         return result_his_detail        
     end
+
+    def m_type_genzan2(result_his_detail)
+        sameQuestionSize = -1
+        until sameQuestionSize == 0 do        
+            num1 = (rand(99)+1)
+            num2 = (rand(9)+1)    
+            question = num1.to_s + " - " + num2.to_s
+            expectAnswer = num1 - num2
+            sameQuestionSize = ResultHisDetail.where(:testHistId => result_his_detail.testHistId,:testQuestion  => question).count()
+        end
+        result_his_detail.testQuestion = question
+        result_his_detail.expectAnswer = expectAnswer
+        
+        return result_his_detail        
+    end
+
+    def m_type_genzan3(result_his_detail)
+        sameQuestionSize = -1
+        until sameQuestionSize == 0 do        
+            num1 = (rand(99)+1)
+            num2 = (rand(99)+1)    
+            if (num1 < num2)
+                num3 = num1
+                num1 = num2
+                num2 = num3
+            end
+            question = num1.to_s + " - " + num2.to_s
+            expectAnswer = num1 - num2
+            sameQuestionSize = ResultHisDetail.where(:testHistId => result_his_detail.testHistId,:testQuestion  => question).count()
+        end
+        result_his_detail.testQuestion = question
+        result_his_detail.expectAnswer = expectAnswer
+        
+        return result_his_detail        
+    end
+
+    
     def calcPoint(userId,testTypeId,testResultFirst)
         # 該当するテストルールを取得する
         testRule = TestRule.find_by(:ruleUserId => userId,:mTestTypeId => testTypeId)

@@ -1,2 +1,0 @@
-class AddColumnToResultHistory < ApplicationRecord
-end

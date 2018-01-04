@@ -8,7 +8,7 @@ class MTestTypesController < ApplicationController
   end
     
   def showList
-    @m_test_types = MTestType.all
+    @m_test_types = MTestType.where("parentTypeId not ?",nil)
   end
     
   # GET /m_test_types/1

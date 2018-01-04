@@ -46,13 +46,13 @@ $(document).on('click', '.number_btn', function(){
   }
   if(clickNum == "けす"){
     if(answerStr.length > 1){
-        answerStr = answerStr.substr(0,1);
+        answerStr = answerStr.substr(0,answerStr.length-1);
     }else{
         answerStr = "";
     }
   }else{
-      // 答えは２桁以上なら、入力しても無視する
-      if(answerStr.length > 1){
+      // 答えは3桁以上なら、入力しても無視する
+      if(answerStr.length > 2){
         return;
       }
       // 答えは２桁以下の場合、入力した数字は後ろに追記します
