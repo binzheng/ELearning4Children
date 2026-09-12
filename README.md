@@ -1,24 +1,62 @@
-# README
+# ELearning4Children
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+子供向けのeラーニングアプリケーションです。算数の計算問題（足し算、引き算、掛け算）を練習できます。
 
-Things you may want to cover:
+## 機能
 
-* Ruby version
+- ユーザー登録・ログイン
+- 算数の問題出題（足し算、引き算、掛け算）
+- 学習履歴の記録
+- 成績の確認
 
-* System dependencies
+## 技術スタック
 
-* Configuration
+- Ruby on Rails 5.x
+- SQLite3 (開発環境)
+- Bootstrap
 
-* Database creation
+## セットアップ
 
-* Database initialization
+### 必要条件
 
-* How to run the test suite
+- Ruby 2.4以上
+- Rails 5.x
+- Node.js
+- SQLite3
 
-* Services (job queues, cache servers, search engines, etc.)
+### インストール
 
-* Deployment instructions
+```bash
+# リポジトリをクローン
+git clone https://github.com/binzheng/ELearning4Children.git
+cd ELearning4Children
 
-* ...
+# 依存関係をインストール
+bundle install
+
+# データベースをセットアップ
+rails db:create
+rails db:migrate
+rails db:seed
+
+# サーバーを起動
+rails server
+```
+
+### 環境変数
+
+本番環境では以下の環境変数を設定してください：
+
+```bash
+export SECRET_KEY_BASE=your_secret_key_here
+```
+
+## 使い方
+
+1. ブラウザで `http://localhost:3000` にアクセス
+2. ユーザー登録またはログイン
+3. 問題タイプを選択して学習開始
+
+## ライセンス
+
+MIT License
